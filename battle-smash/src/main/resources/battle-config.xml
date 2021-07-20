@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    Define "beans" here.
+    A bean definition registers an instance of a data type with the DI container.
+    -->
+    <bean id="location" class="learn.battle.environment.Location">
+        <constructor-arg value="Hyrule Temple "/>
+    </bean>
+
+    <bean id="marshmallow" class="learn.battle.fighters.Fighter">
+        <constructor-arg value="marshmallow"/>
+    </bean>
+
+    <bean id="Link" class="learn.battle.fighters.Fighter">
+        <constructor-arg value="Link"/>
+    </bean>
+
+    <bean id="pyra" class="learn.battle.fighters.Fighter">
+        <constructor-arg value="Pyra/Mythra"/>
+    </bean>
+
+    <bean id="eminado" class="learn.battle.fighters.Fighter">
+        <constructor-arg value="eminado"/>
+    </bean>
+
+    <bean id="Locina" class="learn.battle.fighters.Fighter">
+        <constructor-arg value="Locina"/>
+    </bean>
+
+    <bean id="marth" class="learn.battle.fighters.Fighter">
+        <constructor-arg value="Marth"/>
+    </bean>
+
+    <bean id="reyn" class="learn.battle.fighters.Fighter">
+        <constructor-arg value="reyn"/>
+    </bean>
+
+    <bean id="melia" class="learn.battle.fighters.Fighter">
+        <constructor-arg value="melia"/>
+    </bean>
+
+    <bean id="announcer" class="learn.battle.announcers.ProperAnnouncer"/>
+
+
+    <bean class="learn.battle.environment.Battle">
+        <constructor-arg ref="location"/>
+        <constructor-arg>
+            <list>
+                <ref bean="marshmallow"/>
+                <ref bean="Locina"/>
+                <ref bean="marth"/>
+                <ref bean="Link"/>
+                <ref bean="pyra"/>
+                <ref bean="eminado"/>
+                <ref bean="reyn"/>
+                <ref bean="melia"></ref>
+            </list>
+
+        </constructor-arg>
+        <!--Syntax <property name="captain" ref="captain"/> -->
+        <property name="announcer" ref="announcer"/>
+    </bean>
+
+</beans>
